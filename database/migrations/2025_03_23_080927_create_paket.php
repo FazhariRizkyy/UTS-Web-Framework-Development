@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->decimal('harga', 10, 2);
             $table->integer('durasi_hari');
-            $table->boolean('status_aktif')->default(true);
+            $table->string('status_aktif');
             $table->timestamps();
         });
     }

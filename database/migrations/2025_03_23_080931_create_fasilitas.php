@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_fasilitas');
             $table->text('deskripsi')->nullable();
-            $table->boolean('status_tersedia')->default(true);
+            $table->string('status_tersedia');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('gambar')->nullable();
             $table->string('lokasi');
-            $table->boolean('status_aktif')->default(true);
+            $table->string('status_aktif');
             $table->timestamps();
         });
     }
