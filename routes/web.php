@@ -5,6 +5,7 @@ use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,6 @@ Route::resource('paket', PaketController::class)->middleware('auth');
 Route::resource('fasilitas', FasilitasController::class)->middleware('auth');
 Route::resource('booking', BookingController::class)->middleware('auth');
 Route::resource('transaksi', TransaksiController::class)->middleware('auth');
+Route::resource('riwayat', RiwayatController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

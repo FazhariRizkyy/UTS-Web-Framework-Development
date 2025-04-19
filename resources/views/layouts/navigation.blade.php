@@ -80,7 +80,7 @@
                                         {{ __('Laporan') }}
                                     </x-dropdown-link>
 
-                                    <x-dropdown-link :href="route('dashboard')">
+                                    <x-dropdown-link :href="route('riwayat.index')">
                                         {{ __('Riwayat') }}
                                     </x-dropdown-link>
 
