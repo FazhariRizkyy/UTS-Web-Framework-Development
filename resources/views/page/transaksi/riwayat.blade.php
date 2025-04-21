@@ -9,48 +9,30 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-4 flex items-center justify-between">
-                    <div>DATA RIWAYAT TRANSAKSI</div>
+                    <div class="font-bold text-lg text-gray-800 dark:text-white">DATA RIWAYAT TRANSAKSI</div>
                     <div>
                         <a href="#" onclick="return functionAdd()"
                             class="bg-sky-600 p-2 hover:bg-sky-400 text-white rounded-xl">Add</a>
                     </div>
                 </div>
+    
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">
-                                        NO
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        ID USER
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        ID PAKET WISATA
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        TANGGAL TRANSAKSI
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        JUMLAH TIKET
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        TOTAL HARGA
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        METODE PEMBAYARAN
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        STATUS TRANSAKSI
-                                    </th>
+                                    <th scope="col" class="px-6 py-3">NO</th>
+                                    <th scope="col" class="px-6 py-3">ID USER</th>
+                                    <th scope="col" class="px-6 py-3">ID PAKET WISATA</th>
+                                    <th scope="col" class="px-6 py-3">TANGGAL TRANSAKSI</th>
+                                    <th scope="col" class="px-6 py-3">JUMLAH TIKET</th>
+                                    <th scope="col" class="px-6 py-3">TOTAL HARGA</th>
+                                    <th scope="col" class="px-6 py-3">METODE PEMBAYARAN</th>
+                                    <th scope="col" class="px-6 py-3">STATUS TRANSAKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                    $no = 1;
-                                @endphp
+                                @php $no = 1; @endphp
                                 @foreach ($riwayat as $r)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -58,26 +40,26 @@
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $no++ }}
                                         </th>
+                                        <td class="px-6 py-4">{{ $r->id_user }}</td>
+                                        <td class="px-6 py-4">{{ $r->id_paket_wisata }}</td>
+                                        <td class="px-6 py-4">{{ $r->tanggal_transaksi }}</td>
+                                        <td class="px-6 py-4">{{ $r->jumlah_tiket }}</td>
+                                        <td class="px-6 py-4">{{ $r->total_harga }}</td>
+                                        <td class="px-6 py-4">{{ $r->metode_pembayaran }}</td>
                                         <td class="px-6 py-4">
-                                            {{ $r->id_user }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $r->id_paket_wisata }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $r->tanggal_transaksi }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $r->jumlah_tiket}}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $r->total_harga }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $r->metode_pembayaran }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $r->status_transaksi }}
+                                            @php
+                                                $statusClass = match($r->status_transaksi) {
+                                                    'Sukses' => 'bg-green-100 text-green-800',
+                                                    'Pending' => 'bg-yellow-100 text-yellow-800',
+                                                    'Gagal' => 'bg-red-100 text-red-800',
+                                                    'Dibatalkan' => 'bg-gray-200 text-gray-700',
+                                                    default => 'bg-gray-100 text-gray-800',
+                                                };
+                                            @endphp
+    
+                                            <span class="px-3 py-1 text-xs font-semibold rounded-full {{ $statusClass }}">
+                                                {{ $r->status_transaksi }}
+                                            </span>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -85,9 +67,11 @@
                         </table>
                     </div>
                 </div>
+    
             </div>
         </div>
     </div>
+    
     <div class="fixed inset-0 flex items-center justify-center z-50 hidden" id="sourceModal">
         <div class="fixed inset-0 bg-black opacity-50" onclick="sourceModalClose()"></div>
         <div class="fixed inset-0 flex items-center justify-center">
@@ -103,7 +87,7 @@
                 </div>
                 <form method="POST" id="formSourceModal">
                     @csrf
-                    <div class="flex flex-col p-4 space-y-6">
+                    <div class="flex flex-col p-4 space-y-6 max-h-[500px] overflow-y-auto">
                         <div class="mb-5">
                             <label for="id_user"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID USER</label>
@@ -157,10 +141,10 @@
                             <select class="js-example-placeholder-single js-states form-control w-full m-6"
                                 name="status_transaksi" data-placeholder="Pilih Status Transaksi">
                                 <option value="">Pilih...</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Sukses">Sukses</option>
-                                <option value="Gagal">Gagal</option>
-                                <option value="Dibatalkan">Dibatalkan</option>
+                                <option value="PENDING">PENDING</option>
+                                <option value="SUKSES">SUKSES</option>
+                                <option value="GAGAL">GAGAL</option>
+                                <option value="DIBATALKAN">DIBATALKAN</option>
                             </select>
                         </div>
                     </div>
