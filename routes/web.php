@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatController;
@@ -31,5 +32,6 @@ Route::resource('fasilitas', FasilitasController::class)->middleware('auth');
 Route::resource('booking', BookingController::class)->middleware('auth');
 Route::resource('transaksi', TransaksiController::class)->middleware('auth');
 Route::resource('riwayat', RiwayatController::class)->middleware('auth');
+Route::resource('laporan', LaporanController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
