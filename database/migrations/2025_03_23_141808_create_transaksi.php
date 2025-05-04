@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_paket');
             $table->string('kode_transaksi')->unique();
-            $table->decimal('jumlah', 10, 2);
+            $table->integer('jumlah');
             $table->enum('metode_pembayaran', ['transfer', 'e-wallet', 'cash'])->default('transfer');
             $table->enum('status_pembayaran', ['pending', 'berhasil', 'gagal'])->default('pending');
             $table->dateTime('tanggal_pembayaran')->nullable();

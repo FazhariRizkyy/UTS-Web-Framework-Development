@@ -102,9 +102,9 @@
             <thead>
                 <tr>
                     <th>NO</th>
+                    <th>KODE PAKET</th>
                     <th>KODE TRANSAKSI</th>
-                    <th>ID PAKET</th>
-                    <th>JUMLAH</th>
+                    <th>JUMLAH TIKET</th>
                     <th>METODE PEMBAYARAN</th>
                     <th>TANGGAL BAYAR</th>
                     <th>STATUS</th>
@@ -116,15 +116,13 @@
                 @endphp
                 @foreach ($data as $d)
                     <tr>
-                        {{-- <td>{{ $no++ }}</td>
-                        <td>{{ $d->kode_invoice }}</td>
-                        <td>{{ $d->Member->nama }}</td>
-                        <td>{{ $d->tgl_bayar }}</td>
-                        <td>{{ $d->biaya_tambahan }}</td>
-                        <td>{{ $d->diskon }}</td>
-                        <td>{{ $d->pajak }}</td>
-                        <td>{{ $d->total_bayar }}</td>
-                        <td>{{ $d->status }}</td> --}}
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $d->id_paket }}</td>
+                        <td>{{ $d->kode_transaksi }}</td>
+                        <td>{{ $d->jumlah }}</td>
+                        <td>{{ $d->metode_pembayaran }}</td>
+                        <td>{{ $d->status_pembayaran }}</td>
+                        <td>{{ $d->tanggal_pembayaran }}</td>
                     </tr>
                 @endforeach
             </tbody>
