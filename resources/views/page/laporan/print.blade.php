@@ -102,14 +102,11 @@
             <thead>
                 <tr>
                     <th>NO</th>
-                    <th>TANGGAL</th>
-                    <th>ID TRANSAKSI</th>
-                    <th>ID PELANGGAN</th>
+                    <th>KODE TRANSAKSI</th>
+                    <th>ID PAKET</th>
+                    <th>JUMLAH</th>
+                    <th>METODE PEMBAYARAN</th>
                     <th>TANGGAL BAYAR</th>
-                    <th>BIAYA TAMBAHAN</th>
-                    <th>DISKON</th>
-                    <th>PAJAK</th>
-                    <th>TOTAL BAYAR</th>
                     <th>STATUS</th>
                 </tr>
             </thead>

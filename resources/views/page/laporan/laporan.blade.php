@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-900 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-white dark:text-gray-100">
-                    <div class="p-4 bg-gray-700 mb-2 rounded-xl font-bold">
+                    <div class="p-4 bg-blue-700 mb-2 rounded-xl font-bold">
                         <div class="flex items-center justify-between">
                             <div class="w-full">
                                 PRINT DATA LAPORAN TRANSAKSI

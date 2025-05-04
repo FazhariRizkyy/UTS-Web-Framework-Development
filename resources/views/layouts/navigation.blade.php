@@ -76,7 +76,7 @@
 
                                 <x-slot name="content">
 
-                                    <x-dropdown-link :href="route('dashboard')">
+                                    <x-dropdown-link :href="route('transaksi.index')">
                                         {{ __('Transaksi') }}
                                     </x-dropdown-link>
 
@@ -90,7 +90,7 @@
                                 <x-slot name="trigger">
                                     <button
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-900 dark:text-gray-900 bg-white hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                                        <div>Report</div>
+                                        <div>Laporan</div>
 
                                         <div class="ms-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -106,11 +106,7 @@
                                 <x-slot name="content">
 
                                     <x-dropdown-link :href="route('laporan.index')">
-                                        {{ __('Laporan') }}
-                                    </x-dropdown-link>
-
-                                    <x-dropdown-link :href="route('riwayat.index')">
-                                        {{ __('Riwayat') }}
+                                        {{ __('Laporan Transaksi') }}
                                     </x-dropdown-link>
 
                                 </x-slot>

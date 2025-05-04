@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     protected $fillable = [
-        'user_id',
-        'booking_id',
+        'id_paket',
         'kode_transaksi',
         'jumlah',
         'metode_pembayaran',
@@ -17,4 +16,8 @@ class Transaksi extends Model
     ];
 
     protected $table = 'transaksi';
+    
+    public function paket(){
+        return $this->belongsTo(Paket::class, 'id_paket', 'id');
+    }
 }

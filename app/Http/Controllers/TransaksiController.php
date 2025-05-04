@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paket;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -11,11 +12,12 @@ class TransaksiController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        {
+    { {
             $transaksi = Transaksi::paginate(5);
+            $paket = Paket::all();
             return view('page.aktivitas.transaksi')->with([
                 'transaksi' => $transaksi,
+                'paket' => $paket,
             ]);
         }
     }
@@ -33,8 +35,24 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kodeTransaksi = 'TRX-' . strtoupper(uniqid());
+
+        $data = [
+            'id_paket' => $request->input('id_paket'),
+            'kode_transaksi' => $kodeTransaksi,
+            'jumlah' => $request->input('jumlah'),
+            'metode_pembayaran' => $request->input('metode_pembayaran'),
+            'status_pembayaran' => $request->input('status_pembayaran'),
+            'tanggal_pembayaran' => $request->input('tanggal_pembayaran'),
+        ];
+
+        Transaksi::create($data);
+
+        return redirect()
+            ->route('transaksi.index')
+            ->with('message', 'Data Berhasil ditambahkan');
     }
+
 
     /**
      * Display the specified resource.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Riwayat;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -12,7 +13,7 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('page.transaksi.laporan');
+        return view('page.laporan.laporan');
     }
 
     /**
@@ -35,12 +36,12 @@ class LaporanController extends Controller
         $sampai = ($sampai === 'all') ? null : $sampai;
 
         if($dari === null){
-            $data = Riwayat::all();
+            $data = Transaksi::all();
         }else{
-            $data = Riwayat::whereBetween('tanggal', [$dari, $sampai])->get();
+            $data = Transaksi::whereBetween('tanggal', [$dari, $sampai])->get();
         }
         
-        return view('page.transaksi.print')->with(['data' => $data]);
+        return view('page.laporan.print')->with(['data' => $data]);
     }
 
     /**
