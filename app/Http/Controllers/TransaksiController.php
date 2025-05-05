@@ -83,6 +83,20 @@ class TransaksiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $data = Transaksi::findOrFail($id);
+            $data = Transaksi::where('id', $id)->first();
+
+            $data->delete();
+
+            return response()->json([
+                'message_delete' => "Data Deleted!"
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete data.',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 }

@@ -38,7 +38,7 @@ class LaporanController extends Controller
         if($dari === null){
             $data = Transaksi::all();
         }else{
-            $data = Transaksi::whereBetween('tanggal', [$dari, $sampai])->get();
+            $data = Transaksi::whereBetween('tanggal_pembayaran', [$dari, $sampai])->get();
         }
         
         return view('page.laporan.print')->with(['data' => $data]);
