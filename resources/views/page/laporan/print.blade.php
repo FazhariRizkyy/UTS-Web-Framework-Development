@@ -65,6 +65,31 @@
             background-color: #f2f2f2;
         }
 
+        .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signature-box {
+            text-align: center;
+        }
+
+        .signature-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            width: 200px;
+            margin-top: 60px;
+        }
+
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -121,12 +146,25 @@
                         <td>{{ $d->kode_transaksi }}</td>
                         <td>{{ $d->jumlah }}</td>
                         <td>{{ $d->metode_pembayaran }}</td>
-                        <td>{{ $d->status_pembayaran }}</td>
                         <td>{{ $d->tanggal_pembayaran }}</td>
+                        <td>{{ $d->status_pembayaran }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>Dibuat oleh:</p>
+                <div class="signature-line"></div>
+                <p>(Nama Penyusun)</p>
+            </div>
+            <div class="signature-box">
+                <p>Disetujui oleh:</p>
+                <div class="signature-line"></div>
+                <p>(Nama Penyetuju)</p>
+            </div>
+        </div>
 
         <div class="footer">
             <p>Divisi Finance BisaEksplor!</p>
