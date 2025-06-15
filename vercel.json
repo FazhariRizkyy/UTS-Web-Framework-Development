@@ -1,9 +1,6 @@
 {
   "version": 2,
   "framework": null,
-  "functions": {
-    "api/index.php": { "runtime": "vercel-php@0.7.1" }
-  },
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(.*\\.(png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))", "dest": "/public/$1" },
@@ -15,7 +12,7 @@
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "http://localhost",
+    "APP_URL": "https://your-project-name.vercel.app",
     "APP_KEY": "base64:W6gfByDmEVlxlYJOnF3ous2bTTDaQbVcdUAk8JHqDlc=",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
