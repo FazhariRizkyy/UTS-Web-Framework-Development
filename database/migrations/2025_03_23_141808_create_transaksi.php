@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('kode_transaksi')->unique();
             $table->integer('jumlah');
             $table->enum('metode_pembayaran', ['transfer', 'e-wallet', 'cash'])->default('transfer');
-            $table->enum('status_pembayaran', ['pending', 'berhasil', 'gagal'])->default('pending');
+            $table->enum('status_pembayaran', ['pending', 'dibayar', 'gagal'])->default('pending');
             $table->dateTime('tanggal_pembayaran')->nullable();
             $table->timestamps();
         });
